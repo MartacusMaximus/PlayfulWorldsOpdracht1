@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/LVLSelect.unity
-    guid: 42554d2b98b9bd14fa60e2dc4900f27c
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/PlayGround.unity
     guid: 54bc6e73b21edbb4d9850fc19b38e753
