@@ -6,6 +6,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class PlayerGetHit : MonoBehaviour {
 
+    public GameObject menu;
     private bool lost;
     private float savedTimeScale;
     private CursorLockMode savedCursorLockMode;
@@ -34,16 +35,7 @@ public class PlayerGetHit : MonoBehaviour {
     {
         if (lost)
         {
-            if (GUI.Button(new Rect(462, 200, 300, 60), "Try Again"))
-            {
-                setBackUp();
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
-
-            if (GUI.Button(new Rect(462, 400, 300, 60), "Go Home"))
-            {
-                SceneManager.LoadScene("LVLSelect");
-            }
+            menu.gameObject.SetActive(true);
         }
     }
     

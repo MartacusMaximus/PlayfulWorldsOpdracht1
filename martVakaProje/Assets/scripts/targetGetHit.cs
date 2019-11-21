@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class targetGetHit : MonoBehaviour {
 
@@ -14,8 +16,6 @@ public class targetGetHit : MonoBehaviour {
 	void Start () {
         spread = this.GetComponent<SphereCollider>().radius * this.GetComponent<Transform>().localScale.x; //for spheres scale.x .y and .z are the same         
 	}
-	
-
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -27,14 +27,15 @@ public class targetGetHit : MonoBehaviour {
         }
     }
 
-    private void Explode()
+    public void Explode()
     {
         Vector3 pos = this.GetComponent<Transform>().position;
         Quaternion rot = this.GetComponent<Transform>().rotation;
         List<GameObject> goList = new List<GameObject>();
         switch (numberOfChildren)
         {
-            case 0: break;
+            case 0:
+                break;
             case 1:
                 GameObject go01 = Instantiate(childTarget, pos, rot);
                 goList.Add(go01);

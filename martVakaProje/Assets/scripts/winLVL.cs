@@ -6,6 +6,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class winLVL : MonoBehaviour {
 
+    public GameObject menu;
     private bool won;
     private CursorLockMode savedCursorLockMode;
     private float StartTime;
@@ -35,40 +36,7 @@ public class winLVL : MonoBehaviour {
     {
         if (won)
         {
-            if (GUI.Button(new Rect(462, 200, 300, 60), "Try Again"))
-            {
-                setBackUp();
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
-
-            if (SceneManager.GetActiveScene().name != "lvl5" && GUI.Button(new Rect(462, 400, 300, 60), "Next Level"))
-            {
-                setBackUp();
-                switch (SceneManager.GetActiveScene().name)
-                {
-                    case "PlayGround":
-                        SceneManager.LoadScene("lvl1");
-                        break;
-                    case "lvl1":
-                        SceneManager.LoadScene("lvl2");
-                        break;
-                    case "lvl2":
-                        SceneManager.LoadScene("lvl3");
-                        break;
-                    case "lvl3":
-                        SceneManager.LoadScene("lvl4");
-                        break;
-                    case "lvl4":
-                        SceneManager.LoadScene("lvl5");
-                        break;
-                    
-                }
-            }
-
-            if (GUI.Button(new Rect(462, 600, 300, 60), "Go Home"))
-            {
-                SceneManager.LoadScene("LVLSelect");
-            }
+            menu.gameObject.SetActive(true);
         }
     }
 
@@ -77,5 +45,43 @@ public class winLVL : MonoBehaviour {
         Cursor.lockState = savedCursorLockMode;
         Cursor.visible = false;
         this.GetComponent<FirstPersonController>().enabled = true;
+    }
+
+    public void tryAgain()
+    {
+        setBackUp();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void nextLevel()
+    {
+        if (SceneManager.GetActiveScene().name != "lvl5")
+        {
+            setBackUp();
+            switch (SceneManager.GetActiveScene().name)
+            {
+                case "PlayGround":
+                    SceneManager.LoadScene("lvl1");
+                    break;
+                case "lvl1":
+                    SceneManager.LoadScene("lvl2");
+                    break;
+                case "lvl2":
+                    SceneManager.LoadScene("lvl3");
+                    break;
+                case "lvl3":
+                    SceneManager.LoadScene("lvl4");
+                    break;
+                case "lvl4":
+                    SceneManager.LoadScene("lvl5");
+                    break;
+
+            }
+        }
+    }
+
+    public void lvlSelect()
+    {
+            SceneManager.LoadScene("LVLSelect");
     }
 }
