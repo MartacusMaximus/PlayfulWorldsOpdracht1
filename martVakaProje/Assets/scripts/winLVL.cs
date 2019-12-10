@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityStandardAssets.Characters.FirstPerson;
@@ -10,14 +11,13 @@ public class winLVL : MonoBehaviour {
     private bool won;
     private CursorLockMode savedCursorLockMode;
     private float StartTime;
-    private float TimeTaken;
-
     private void Start()
     {
-        StartTime = Time.time;   
+        StartTime = Time.time;
+    
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         if(GameObject.FindWithTag("target") == null && !won)
         {
@@ -28,14 +28,11 @@ public class winLVL : MonoBehaviour {
             Time.timeScale = 0;
             this.GetComponent<FirstPersonController>().enabled = false;
             won = true;
-            TimeTaken = Time.time - StartTime;
         }
-    }
-
-    private void OnGUI()
-    {
         if (won)
         {
+            Debug.Log("WIN BABYYYYYY");
+
             menu.gameObject.SetActive(true);
         }
     }
@@ -50,7 +47,7 @@ public class winLVL : MonoBehaviour {
     public void tryAgain()
     {
         setBackUp();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
     }
 
     public void nextLevel()

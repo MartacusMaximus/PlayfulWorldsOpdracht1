@@ -8,10 +8,25 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/PlayGround.unity
     guid: 54bc6e73b21edbb4d9850fc19b38e753
   - enabled: 1
+    path: Assets/LvLSelect.unity
+    guid: 2f4fe25d01fd22b43890d442f8d35c79
+  - enabled: 1
     path: Assets/lvl1.unity
     guid: e1898701bc341f2409d4a5a783bdb7c3
+  - enabled: 1
+    path: Assets/lvl2.unity
+    guid: 7cf66ac6aa8fce448a834db4de9e4f0e
+  - enabled: 1
+    path: Assets/lvl3.unity
+    guid: 017f40da68c0b9f4f9005caf631f429d
+  - enabled: 1
+    path: Assets/lvl4.unity
+    guid: d17d977b56fd7b84d897fbc098f33c3f
+  - enabled: 1
+    path: Assets/lvl5.unity
+    guid: 854de98f2bbc3a44a97bbff9ef9273ce
   m_configObjects: {}

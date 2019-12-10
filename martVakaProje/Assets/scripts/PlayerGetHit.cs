@@ -16,6 +16,16 @@ public class PlayerGetHit : MonoBehaviour {
         Time.timeScale = 1;
     }
 
+    private void Update()
+    {
+        if (lost)
+        {
+            Debug.Log("LOSE");
+
+            menu.gameObject.SetActive(true);
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "target" && !lost)
@@ -28,16 +38,11 @@ public class PlayerGetHit : MonoBehaviour {
             Cursor.visible = true;
             Time.timeScale = 0;
             this.GetComponent<FirstPersonController>().enabled = false;
+
         }
     }
 
-    private void OnGUI()
-    {
-        if (lost)
-        {
-            menu.gameObject.SetActive(true);
-        }
-    }
+
     
     private void setBackUp()
     {

@@ -8,12 +8,14 @@ public class targetGetHit : MonoBehaviour {
 
     [Range(0,4)]
     public int numberOfChildren;
-
+    public AudioSource audioSource;
+    public AudioClip pop;
     public GameObject childTarget;
 
     private float spread;
     // Use this for initialization
 	void Start () {
+        audioSource = GetComponent<AudioSource>();
         spread = this.GetComponent<SphereCollider>().radius * this.GetComponent<Transform>().localScale.x; //for spheres scale.x .y and .z are the same         
 	}
 
@@ -21,6 +23,7 @@ public class targetGetHit : MonoBehaviour {
     {
         if(collision.gameObject.tag == "projectile")
         {
+            audioSource.PlayOneShot(pop, 0.7f);
             Explode();
 
             Destroy(transform.gameObject);
