@@ -33,5 +33,11 @@ public class shootie : MonoBehaviour {
                                          GetComponent<Transform>().GetChild(0).GetComponent<Transform>().rotation);
             }
         }
-	}
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
+    }
+
+
 }
