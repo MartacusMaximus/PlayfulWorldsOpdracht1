@@ -11,7 +11,6 @@ public class LvLSelect : MonoBehaviour
 
     public void LvlSelect(string levelName)
     {
-        Debug.Log("Fuck");
         SceneManager.LoadScene(levelName);
     }
 
